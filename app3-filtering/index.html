@@ -1,7 +1,21 @@
-<html>
-	<body>
-		Something
-				<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+<html ng-app='app'>
+	<head>
+		<link rel="stylesheet" href="style.css"></link>
+	</head>
+	<body ng-controller='mainController'>
+		<p>List of Names</p>
+		<label>Search: <input ng-model="searchText"></label>
+		<table>
+		<tr><th>Name</th><th>Email</th><th>Date Employed</th><th>Phone</th></tr>
+		<tr ng-repeat = "name in names | filter:searchText">
+			<td>{{name.name}}</td>
+			<td>{{name.email}}</td>
+			<td>{{name.dateEmployed}}</td>	
+			<td>{{name.phone}}</td>
+		</tr> 
+		</table>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 		<script src="app.js"></script>
 		<script src="controller.js"></script>
 		<script src="service.js"></script>
